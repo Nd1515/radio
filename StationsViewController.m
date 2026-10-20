@@ -9,6 +9,7 @@
 #import "Theme.h"
 
 @interface StationsViewController () <UITableViewDataSource, UITableViewDelegate, PlayerBarViewDelegate>
+@property (nonatomic, strong) UIImageView *backgroundView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PlayerBarView *playerBar;
 @property (nonatomic, strong) NSArray *stations;
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"老收音机";
-    self.view.backgroundColor = [Theme cream];
+    self.view.backgroundColor = [Theme walnut];
     [Theme styleNavigationBar:self.navigationController.navigationBar];
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"选择"
@@ -27,19 +28,25 @@
                                                                              target:self
                                                                              action:@selector(openSettings:)];
 
+    self.backgroundView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[Theme woodTexture]];
+    self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.backgroundView];
+
     CGFloat height = self.view.bounds.size.height;
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, height - 58.0)
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, height - 64.0)
                                                    style:UITableViewStylePlain];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.tableView.backgroundColor = [Theme cream];
-    self.tableView.separatorColor = [Theme separator];
-    self.tableView.rowHeight = 64.0;
+    [Theme styleTableView:self.tableView];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 78.0;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableHeaderView = [self buildHeaderView];
     [self.view addSubview:self.tableView];
 
-    self.playerBar = [[PlayerBarView alloc] initWithFrame:CGRectMake(0, height - 58.0, self.view.bounds.size.width, 58.0)];
+    self.playerBar = [[PlayerBarView alloc] initWithFrame:CGRectMake(0, height - 64.0, self.view.bounds.size.width, 64.0)];
     self.playerBar.delegate = self;
     [self.view addSubview:self.playerBar];
 
@@ -48,6 +55,63 @@
     [center addObserver:self selector:@selector(playerChanged:) name:RadioPlayerStateDidChangeNotification object:nil];
 
     [self reloadStations];
+}
+
+- (UIView *)buildHeaderView {
+    CGFloat width = self.view.bounds.size.width;
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 62.0)];
+    header.backgroundColor = [UIColor colorWithPatternImage:[Theme metalTexture]];
+    header.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+
+    UIView *top = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 2)];
+    top.backgroundColor = [Theme brass];
+    top.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [header addSubview:top];
+
+    UIView *bottom = [[UIView alloc] initWithFrame:CGRectMake(0, 60, width, 2)];
+    bottom.backgroundColor = [Theme brass];
+    bottom.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [header addSubview:bottom];
+
+    UILabel *brand = [[UILabel alloc] initWithFrame:CGRectMake(14, 9, 260, 26)];
+    brand.backgroundColor = [UIColor clearColor];
+    brand.text = @"OLD RADIO";
+    brand.textColor = [Theme cream];
+    brand.font = [Theme displayFontOfSize:22];
+    brand.layer.shadowColor = [[UIColor blackColor] CGColor];
+    brand.layer.shadowOpacity = 0.7;
+    brand.layer.shadowRadius = 1.0;
+    brand.layer.shadowOffset = CGSizeMake(0, 1);
+    [header addSubview:brand];
+
+    UILabel *subtitle = [[UILabel alloc] initWithFrame:CGRectMake(15, 35, 300, 15)];
+    subtitle.backgroundColor = [UIColor clearColor];
+    subtitle.text = @"AM · FM · INTERNET RECEIVER";
+    subtitle.textColor = [Theme brass];
+    subtitle.font = [Theme boldTextFontOfSize:9];
+    [header addSubview:subtitle];
+
+    UIView *led = [[UIView alloc] initWithFrame:CGRectMake(width - 76, 17, 8, 8)];
+    led.backgroundColor = [Theme ledRed];
+    led.layer.cornerRadius = 4.0;
+    led.layer.borderWidth = 1.0;
+    led.layer.borderColor = [[UIColor colorWithRed:0.30 green:0.03 blue:0.02 alpha:1.0] CGColor];
+    led.layer.shadowColor = [[Theme ledRed] CGColor];
+    led.layer.shadowOpacity = 0.9;
+    led.layer.shadowRadius = 4.0;
+    led.layer.shadowOffset = CGSizeZero;
+    led.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [header addSubview:led];
+
+    UILabel *onAir = [[UILabel alloc] initWithFrame:CGRectMake(width - 64, 14, 58, 16)];
+    onAir.backgroundColor = [UIColor clearColor];
+    onAir.text = @"ON AIR";
+    onAir.textColor = [Theme ledRed];
+    onAir.font = [Theme boldTextFontOfSize:10];
+    onAir.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [header addSubview:onAir];
+
+    return header;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -59,8 +123,8 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     CGFloat height = self.view.bounds.size.height;
-    self.tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, height - 58.0);
-    self.playerBar.frame = CGRectMake(0, height - 58.0, self.view.bounds.size.width, 58.0);
+    self.tableView.frame = CGRectMake(0, 0, self.view.bounds.size.width, height - 64.0);
+    self.playerBar.frame = CGRectMake(0, height - 64.0, self.view.bounds.size.width, 64.0);
 }
 
 - (void)dealloc {
@@ -75,11 +139,11 @@
     if (self.stations.count == 0) {
         UILabel *empty = [[UILabel alloc] initWithFrame:self.tableView.bounds];
         empty.backgroundColor = [UIColor clearColor];
-        empty.textColor = [Theme muted];
+        empty.textColor = [Theme cream];
         empty.font = [Theme textFontOfSize:15];
         empty.textAlignment = NSTextAlignmentCenter;
         empty.numberOfLines = 0;
-        empty.text = @"还没有选择电台\n点右上角“选择”，勾选你常听的几个";
+        empty.text = @"还没有选择电台\n点右上角“选择”，勾选你常听的几个\n也可以点“＋”添加自己的直播源";
         self.tableView.backgroundView = empty;
     } else {
         self.tableView.backgroundView = nil;

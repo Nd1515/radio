@@ -18,4 +18,8 @@ extern NSString * const StationStoreDidChangeNotification;
 - (void)moveSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex;
 - (void)resetSelection;
 
+- (BOOL)containsStationWithURL:(NSString *)urlString;
+- (BOOL)addCustomStation:(Station *)station;
+- (void)removeStation:(Station *)station;
+
 @end

@@ -10,10 +10,23 @@
 + (UIColor *)muted;
 + (UIColor *)darkBackground;
 + (UIColor *)separator;
++ (UIColor *)brass;
++ (UIColor *)ledAmber;
++ (UIColor *)ledRed;
++ (UIColor *)metal;
++ (UIColor *)walnut;
 
 + (UIFont *)displayFontOfSize:(CGFloat)size;
 + (UIFont *)textFontOfSize:(CGFloat)size;
 + (UIFont *)boldTextFontOfSize:(CGFloat)size;
+
++ (UIImage *)woodTexture;
++ (UIImage *)paperTexture;
++ (UIImage *)metalTexture;
++ (UIImage *)leatherTexture;
++ (UIImage *)navigationBarImage;
+
 + (void)styleNavigationBar:(UINavigationBar *)bar;
++ (void)styleTableView:(UITableView *)tableView;
 
 @end
