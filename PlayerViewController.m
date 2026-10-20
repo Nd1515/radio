@@ -28,7 +28,6 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    CGContextRef context = UIGraphicsGetCurrentContext();
     CGRect bounds = self.bounds;
     UIBezierPath *panel = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(bounds, 1.0, 1.0) cornerRadius:4.0];
     [[UIColor colorWithRed:0.08 green:0.06 blue:0.04 alpha:0.96] setFill];
