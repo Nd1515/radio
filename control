@@ -1,0 +1,9 @@
+Package: com.example.oldradio
+Name: OldRadio
+Version: 1.0
+Architecture: iphoneos-arm
+Description: OldRadio - iOS 6 internet radio with preloaded stations
+Maintainer: local
+Author: local
+Section: Applications
+Depends: firmware (>= 6.0)
