@@ -127,13 +127,6 @@
         UIGraphicsBeginImageContextWithOptions(size, YES, 0.0);
         [[self paper] setFill];
         UIRectFill(CGRectMake(0, 0, size.width, size.height));
-        for (NSInteger i = 0; i < 500; i++) {
-            CGFloat x = (CGFloat)arc4random_uniform((uint32_t)size.width);
-            CGFloat y = (CGFloat)arc4random_uniform((uint32_t)size.height);
-            CGFloat alpha = 0.02 + (CGFloat)arc4random_uniform(30) / 1000.0;
-            [[UIColor colorWithRed:0.35 green:0.24 blue:0.13 alpha:alpha] setFill];
-            UIRectFill(CGRectMake(x, y, 1.0, 1.0));
-        }
         image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
     });

@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"老收音机";
+    self.title = @"📻";
     self.view.backgroundColor = [Theme walnut];
     [Theme styleNavigationBar:self.navigationController.navigationBar];
 
@@ -75,7 +75,7 @@
 
     UILabel *brand = [[UILabel alloc] initWithFrame:CGRectMake(14, 9, 260, 26)];
     brand.backgroundColor = [UIColor clearColor];
-    brand.text = @"OLD RADIO";
+    brand.text = @"📻";
     brand.textColor = [Theme cream];
     brand.font = [Theme displayFontOfSize:22];
     brand.layer.shadowColor = [[UIColor blackColor] CGColor];

@@ -74,6 +74,8 @@
 @property (nonatomic, strong) UILabel *genreLabel;
 @property (nonatomic, strong) UILabel *statusLabel;
 @property (nonatomic, strong) TransportButton *transportButton;
+@property (nonatomic, strong) UIButton *previousButton;
+@property (nonatomic, strong) UIButton *nextButton;
 @property (nonatomic, strong) MPVolumeView *volumeView;
 @property (nonatomic, strong) UILabel *hintLabel;
 @end
@@ -87,6 +89,40 @@
     screw.layer.borderWidth = 0.5;
     screw.layer.borderColor = [[UIColor colorWithRed:0.25 green:0.17 blue:0.08 alpha:1.0] CGColor];
     return screw;
+}
+
+- (UIButton *)makeSkipButtonWithTitle:(NSString *)title action:(SEL)action {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = [UIColor colorWithRed:0.20 green:0.15 blue:0.10 alpha:0.96];
+    button.layer.cornerRadius = 25.0;
+    button.layer.borderWidth = 1.5;
+    button.layer.borderColor = [[Theme brass] CGColor];
+    button.layer.shadowColor = [[UIColor blackColor] CGColor];
+    button.layer.shadowOpacity = 0.55;
+    button.layer.shadowRadius = 3.0;
+    button.layer.shadowOffset = CGSizeMake(0, 2);
+    button.titleLabel.font = [Theme boldTextFontOfSize:14];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[Theme brass] forState:UIControlStateNormal];
+    [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    return button;
+}
+
+- (void)previousTapped:(id)sender {
+    [[RadioPlayer sharedPlayer] playPreviousStation];
+}
+
+- (void)nextTapped:(id)sender {
+    [[RadioPlayer sharedPlayer] playNextStation];
+}
+
+- (void)swipeStationLeft:(UISwipeGestureRecognizer *)gesture {
+    [[RadioPlayer sharedPlayer] playNextStation];
+}
+
+- (void)swipeStationRight:(UISwipeGestureRecognizer *)gesture {
+    [[RadioPlayer sharedPlayer] playPreviousStation];
 }
 
 - (void)viewDidLoad {
@@ -183,6 +219,17 @@
     [self.transportButton addTarget:self action:@selector(transportTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.transportButton];
 
+    self.previousButton = [self makeSkipButtonWithTitle:@"◀◀" action:@selector(previousTapped:)];
+    self.nextButton = [self makeSkipButtonWithTitle:@"▶▶" action:@selector(nextTapped:)];
+
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeStationLeft:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.bezelView addGestureRecognizer:swipeLeft];
+
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeStationRight:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.bezelView addGestureRecognizer:swipeRight];
+
     self.volumeView = [[MPVolumeView alloc] initWithFrame:CGRectZero];
     self.volumeView.showsRouteButton = YES;
     self.volumeView.showsVolumeSlider = YES;
@@ -242,9 +289,12 @@
     self.statusLabel.frame = CGRectMake(8, 58, width - 64.0, 16.0);
 
     CGFloat buttonSize = height < 460.0 ? 64.0 : 74.0;
-    self.transportButton.frame = CGRectMake((width - buttonSize) / 2.0,
-                                             displayY + 82.0 + 7.0,
-                                             buttonSize, buttonSize);
+    CGFloat buttonY = displayY + 82.0 + 7.0;
+    CGFloat centerX = width / 2.0;
+    self.transportButton.frame = CGRectMake(centerX - buttonSize / 2.0, buttonY, buttonSize, buttonSize);
+    CGFloat skipY = buttonY + (buttonSize - 50.0) / 2.0;
+    self.previousButton.frame = CGRectMake(centerX - buttonSize / 2.0 - 78.0, skipY, 50.0, 50.0);
+    self.nextButton.frame = CGRectMake(centerX + buttonSize / 2.0 + 28.0, skipY, 50.0, 50.0);
     CGFloat volumeY = height - 58.0;
     self.volumeView.frame = CGRectMake((width - 250.0) / 2.0, volumeY, 250.0, 28.0);
     self.hintLabel.frame = CGRectMake(16.0, height - 25.0, width - 32.0, 16.0);
@@ -258,11 +308,15 @@
         self.genreLabel.text = @"";
         self.statusLabel.text = @"返回列表选择";
         self.transportButton.hidden = YES;
+        self.previousButton.hidden = YES;
+        self.nextButton.hidden = YES;
         self.logoView.image = nil;
         self.meterView.active = NO;
         return;
     }
     self.transportButton.hidden = NO;
+    self.previousButton.hidden = NO;
+    self.nextButton.hidden = NO;
     self.nameLabel.text = station.name;
     self.genreLabel.text = [NSString stringWithFormat:@"%@ · %@", station.genre ? station.genre : @"网络电台", station.frequency ? station.frequency : @"在线直播"];
     self.logoView.image = [station logoImage];
