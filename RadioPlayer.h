@@ -23,6 +23,8 @@ extern NSString * const RadioPlayerStateDidChangeNotification;
 
 - (BOOL)isPlaying;
 - (void)playStation:(Station *)station;
+- (void)playNextStation;
+- (void)playPreviousStation;
 - (void)togglePlayPause;
 - (void)pause;
 - (void)resume;

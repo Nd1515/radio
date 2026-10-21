@@ -1,5 +1,6 @@
 #import "RadioPlayer.h"
 #import "Station.h"
+#import "StationStore.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -22,6 +23,7 @@ static void *RadioPlayerRateContext = &RadioPlayerRateContext;
     BOOL _audioSessionActive;
 }
 
+- (void)playRelativeStation:(NSInteger)offset;
 - (void)startPlayback;
 - (void)teardownPlayer;
 - (void)activateAudioSession;
@@ -47,6 +49,7 @@ static void *RadioPlayerRateContext = &RadioPlayerRateContext;
     self = [super init];
     if (self) {
         _state = RadioPlayerStateIdle;
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self
                    selector:@selector(audioSessionInterrupted:)
@@ -84,6 +87,40 @@ static void *RadioPlayerRateContext = &RadioPlayerRateContext;
     _errorMessage = nil;
     [self startPlayback];
     [[NSNotificationCenter defaultCenter] postNotificationName:RadioPlayerStateDidChangeNotification object:self];
+}
+
+- (void)playRelativeStation:(NSInteger)offset {
+    NSArray *stations = [[StationStore sharedStore] selectedStations];
+    if (stations.count == 0) {
+        return;
+    }
+    NSInteger currentIndex = NSNotFound;
+    if (_currentStation) {
+        for (NSInteger i = 0; i < (NSInteger)stations.count; i++) {
+            Station *candidate = [stations objectAtIndex:i];
+            if ([candidate.stationID isEqualToString:_currentStation.stationID]) {
+                currentIndex = i;
+                break;
+            }
+        }
+    }
+    NSInteger count = (NSInteger)stations.count;
+    NSInteger nextIndex = 0;
+    if (currentIndex != NSNotFound) {
+        nextIndex = (currentIndex + offset) % count;
+        if (nextIndex < 0) {
+            nextIndex += count;
+        }
+    }
+    [self playStation:[stations objectAtIndex:nextIndex]];
+}
+
+- (void)playNextStation {
+    [self playRelativeStation:1];
+}
+
+- (void)playPreviousStation {
+    [self playRelativeStation:-1];
 }
 
 - (void)startPlayback {
@@ -247,7 +284,8 @@ static void *RadioPlayerRateContext = &RadioPlayerRateContext;
     [info setObject:_currentStation.name forKey:MPMediaItemPropertyTitle];
     [info setObject:(_currentStation.genre.length ? _currentStation.genre : @"网络电台") forKey:MPMediaItemPropertyArtist];
     [info setObject:(_currentStation.detail.length ? _currentStation.detail : @"") forKey:MPMediaItemPropertyAlbumTitle];
-    [info setObject:[NSNumber numberWithDouble:(_state == RadioPlayerStatePlaying ? 1.0 : 0.0)]
+    double playbackRate = (_state == RadioPlayerStatePlaying || _state == RadioPlayerStateConnecting) ? 1.0 : 0.0;
+    [info setObject:[NSNumber numberWithDouble:playbackRate]
              forKey:MPNowPlayingInfoPropertyPlaybackRate];
     UIImage *artwork = [_currentStation logoImage];
     if (artwork) {
@@ -326,9 +364,21 @@ static void *RadioPlayerRateContext = &RadioPlayerRateContext;
     }
     switch (event.subtype) {
         case UIEventSubtypeRemoteControlPlay:
+            if (![self isPlaying]) {
+                [self resume];
+            }
+            break;
         case UIEventSubtypeRemoteControlPause:
+            [self pause];
+            break;
         case UIEventSubtypeRemoteControlTogglePlayPause:
             [self togglePlayPause];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self playNextStation];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self playPreviousStation];
             break;
         case UIEventSubtypeRemoteControlStop:
             [self stop];
