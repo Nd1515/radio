@@ -14,7 +14,6 @@
     station.frequency = [dictionary objectForKey:@"frequency"];
     station.streamURL = [dictionary objectForKey:@"url"];
     station.logoName = [dictionary objectForKey:@"logo"];
-    station.customStation = [[dictionary objectForKey:@"custom"] boolValue];
     if (station.stationID.length == 0 || station.name.length == 0 || station.streamURL.length == 0) {
         return nil;
     }
@@ -30,7 +29,6 @@
     if (self.frequency) [dictionary setObject:self.frequency forKey:@"frequency"];
     if (self.streamURL) [dictionary setObject:self.streamURL forKey:@"url"];
     if (self.logoName) [dictionary setObject:self.logoName forKey:@"logo"];
-    [dictionary setObject:[NSNumber numberWithBool:self.customStation] forKey:@"custom"];
     return dictionary;
 }
 

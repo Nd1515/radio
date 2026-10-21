@@ -1,4 +1,4 @@
-#import "AppDelegate.h"
+﻿#import "AppDelegate.h"
 #import "StationsViewController.h"
 #import "Theme.h"
 #import "RadioPlayer.h"
@@ -19,7 +19,7 @@
     return YES;
 }
 
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskPortrait;
 }
 
@@ -32,3 +32,4 @@
 }
 
 @end
+

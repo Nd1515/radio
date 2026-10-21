@@ -18,740 +18,820 @@
 	<key>Stations</key>
 	<array>
 		<dict>
-			<key>id</key>
-			<string>cnr1</string>
-			<key>name</key>
-			<string>CNR-1 中国之声</string>
-			<key>genre</key>
-			<string>新闻 / 综合</string>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 108</string>
-			<key>url</key>
-			<string>http://ngcdn001.cnr.cn/live/zgzs/index.m3u8</string>
+			<key>genre</key>
+			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>cnr1</string>
 			<key>logo</key>
 			<string>cnr1.png</string>
+			<key>name</key>
+			<string>CNR-1 中国之声</string>
+			<key>url</key>
+			<string>http://ngcdn001.cnr.cn/live/zgzs/index.m3u8</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>cnr2</string>
-			<key>name</key>
-			<string>CNR-2 经济之声</string>
-			<key>genre</key>
-			<string>财经 / 新闻</string>
 			<key>detail</key>
 			<string>财经 新闻</string>
 			<key>frequency</key>
 			<string>FM 96.6</string>
-			<key>url</key>
-			<string>http://ngcdn002.cnr.cn/live/jjzs/index.m3u8</string>
+			<key>genre</key>
+			<string>财经 / 新闻</string>
+			<key>id</key>
+			<string>cnr2</string>
 			<key>logo</key>
 			<string>cnr2.png</string>
+			<key>name</key>
+			<string>CNR-2 经济之声</string>
+			<key>url</key>
+			<string>http://ngcdn002.cnr.cn/live/jjzs/index.m3u8</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>musicradio</string>
-			<key>name</key>
-			<string>MusicRadio 音乐之声</string>
-			<key>genre</key>
-			<string>音乐 / 流行</string>
 			<key>detail</key>
 			<string>音乐 流行</string>
 			<key>frequency</key>
 			<string>FM 90.0</string>
-			<key>url</key>
-			<string>http://ngcdn001.cnr.cn/live/yyzs/index.m3u8</string>
-			<key>logo</key>
-			<string>musicradio.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>hitfm</string>
-			<key>name</key>
-			<string>HIT FM 劲曲调频</string>
 			<key>genre</key>
 			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>musicradio</string>
+			<key>logo</key>
+			<string>musicradio.png</string>
+			<key>name</key>
+			<string>MusicRadio 音乐之声</string>
+			<key>url</key>
+			<string>http://ngcdn001.cnr.cn/live/yyzs/index.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>国际流行</string>
 			<key>frequency</key>
 			<string>FM 88.7</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/15318703/64k.mp3</string>
-			<key>logo</key>
-			<string>hitfm.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>dynamic101</string>
-			<key>name</key>
-			<string>上海动感101</string>
 			<key>genre</key>
 			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>hitfm</string>
+			<key>logo</key>
+			<string>hitfm.png</string>
+			<key>name</key>
+			<string>HIT FM 劲曲调频</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/15318703/64k.mp3</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>流行音乐</string>
 			<key>frequency</key>
 			<string>FM 101.7</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/274/64k.mp3</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>dynamic101</string>
 			<key>logo</key>
 			<string>dynamic101.png</string>
+			<key>name</key>
+			<string>上海动感101</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/274/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>beijing-traffic</string>
-			<key>name</key>
-			<string>北京交通广播</string>
+			<key>detail</key>
+			<string>音乐 流行</string>
+			<key>frequency</key>
+			<string>FM 102.4</string>
 			<key>genre</key>
-			<string>交通 / 新闻</string>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>hebei-music</string>
+			<key>logo</key>
+			<string>hebei-music.png</string>
+			<key>name</key>
+			<string>河北音乐广播</string>
+			<key>url</key>
+			<string>https://radio.pull.hebtv.com/live/hebyy.m3u8</string>
+		</dict>
+		<dict>
+			<key>detail</key>
+			<string>音乐 流行</string>
+			<key>frequency</key>
+			<string>FM 98.6</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>liaoning-music</string>
+			<key>logo</key>
+			<string>liaoning-music.png</string>
+			<key>name</key>
+			<string>辽宁音乐广播</string>
+			<key>url</key>
+			<string>https://lhttp.qtfm.cn/live/1101/64k.mp3?app</string>
+		</dict>
+		<dict>
+			<key>detail</key>
+			<string>音乐 流行</string>
+			<key>frequency</key>
+			<string>FM 90.0</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>henan-music</string>
+			<key>logo</key>
+			<string>henan-music.png</string>
+			<key>name</key>
+			<string>河南音乐广播</string>
+			<key>url</key>
+			<string>https://stream.hndt.com/live/yinyue/playlist.m3u8</string>
+		</dict>
+		<dict>
+			<key>detail</key>
+			<string>音乐 流行</string>
+			<key>frequency</key>
+			<string>FM 89.5</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>anhui-music</string>
+			<key>logo</key>
+			<string>anhui-music.png</string>
+			<key>name</key>
+			<string>安徽音乐广播</string>
+			<key>url</key>
+			<string>https://lhttp.qtfm.cn/live/1947/64k.mp3</string>
+		</dict>
+		<dict>
+			<key>detail</key>
+			<string>音乐 流行</string>
+			<key>frequency</key>
+			<string>FM 98.8</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>shaanxi-music</string>
+			<key>logo</key>
+			<string>shaanxi-music.png</string>
+			<key>name</key>
+			<string>陕西音乐广播</string>
+			<key>url</key>
+			<string>https://lhttp.qtfm.cn/live/4873/64k.mp3</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>交通 新闻</string>
 			<key>frequency</key>
 			<string>FM 103.9</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/336/64k.mp3</string>
+			<key>genre</key>
+			<string>交通 / 新闻</string>
+			<key>id</key>
+			<string>beijing-traffic</string>
 			<key>logo</key>
 			<string>beijing-traffic.png</string>
+			<key>name</key>
+			<string>北京交通广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/336/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>zhejiang-voice</string>
-			<key>name</key>
-			<string>浙江之声</string>
-			<key>genre</key>
-			<string>新闻 / 综合</string>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 88.0</string>
-			<key>url</key>
-			<string>http://ali-m-l.cztv.com/channels/lantian/fm88/128k.m3u8</string>
-			<key>logo</key>
-			<string>zhejiang-voice.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>jiangsu-news</string>
-			<key>name</key>
-			<string>江苏新闻广播</string>
 			<key>genre</key>
 			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>zhejiang-voice</string>
+			<key>logo</key>
+			<string>zhejiang-voice.png</string>
+			<key>name</key>
+			<string>浙江之声</string>
+			<key>url</key>
+			<string>http://ali-m-l.cztv.com/channels/lantian/fm88/128k.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 93.7</string>
-			<key>url</key>
-			<string>http://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8</string>
-			<key>logo</key>
-			<string>jiangsu-news.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>sh-news</string>
-			<key>name</key>
-			<string>上海新闻广播</string>
 			<key>genre</key>
 			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>jiangsu-news</string>
+			<key>logo</key>
+			<string>jiangsu-news.png</string>
+			<key>name</key>
+			<string>江苏新闻广播</string>
+			<key>url</key>
+			<string>http://lzlive.vojs.cn/5Fo8mMX/92/live.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 93.4 / AM 990</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/270/64k.mp3</string>
+			<key>genre</key>
+			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>sh-news</string>
 			<key>logo</key>
 			<string>sh-news.png</string>
+			<key>name</key>
+			<string>上海新闻广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/270/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>sh-traffic</string>
-			<key>name</key>
-			<string>上海交通广播</string>
-			<key>genre</key>
-			<string>交通 / 路况</string>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>FM 105.7 / AM 648</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/266/64k.mp3</string>
+			<key>genre</key>
+			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>sh-traffic</string>
 			<key>logo</key>
 			<string>sh-traffic.png</string>
+			<key>name</key>
+			<string>上海交通广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/266/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>sh-classic</string>
-			<key>name</key>
-			<string>上海经典音乐广播</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 音乐</string>
 			<key>frequency</key>
 			<string>FM 94.7</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/267/64k.mp3</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>sh-classic</string>
 			<key>logo</key>
 			<string>sh-classic.png</string>
+			<key>name</key>
+			<string>上海经典音乐广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/267/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>bj-news</string>
-			<key>name</key>
-			<string>北京新闻广播</string>
-			<key>genre</key>
-			<string>新闻 / 综合</string>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 94.5 / AM 828</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/339/64k.mp3</string>
+			<key>genre</key>
+			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>bj-news</string>
 			<key>logo</key>
 			<string>bj-news.png</string>
+			<key>name</key>
+			<string>北京新闻广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/339/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>bj-music</string>
-			<key>name</key>
-			<string>北京音乐广播</string>
-			<key>genre</key>
-			<string>音乐 / 流行</string>
 			<key>detail</key>
 			<string>音乐 流行</string>
 			<key>frequency</key>
 			<string>FM 97.4</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/332/64k.mp3</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>bj-music</string>
 			<key>logo</key>
 			<string>bj-music.png</string>
+			<key>name</key>
+			<string>北京音乐广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/332/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>gd-news</string>
-			<key>name</key>
-			<string>广东新闻广播</string>
-			<key>genre</key>
-			<string>新闻 / 综合</string>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 91.4 / AM 648</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/1254/64k.mp3</string>
+			<key>genre</key>
+			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>gd-news</string>
 			<key>logo</key>
 			<string>gd-news.png</string>
+			<key>name</key>
+			<string>广东新闻广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/1254/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>gd-econ</string>
-			<key>name</key>
-			<string>广东珠江经济台</string>
-			<key>genre</key>
-			<string>财经 / 粤语</string>
 			<key>detail</key>
 			<string>财经 粤语</string>
 			<key>frequency</key>
 			<string>FM 97.4 / AM 1062</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/1259/64k.mp3</string>
+			<key>genre</key>
+			<string>财经 / 粤语</string>
+			<key>id</key>
+			<string>gd-econ</string>
 			<key>logo</key>
 			<string>gd-econ.png</string>
+			<key>name</key>
+			<string>广东珠江经济台</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/1259/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>gd-music</string>
-			<key>name</key>
-			<string>广东音乐之声</string>
-			<key>genre</key>
-			<string>音乐 / 流行</string>
 			<key>detail</key>
 			<string>音乐 流行</string>
 			<key>frequency</key>
 			<string>FM 99.3</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/1260/64k.mp3</string>
+			<key>genre</key>
+			<string>音乐 / 流行</string>
+			<key>id</key>
+			<string>gd-music</string>
 			<key>logo</key>
 			<string>gd-music.png</string>
+			<key>name</key>
+			<string>广东音乐之声</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/1260/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>gd-traffic</string>
-			<key>name</key>
-			<string>广东交通之声</string>
-			<key>genre</key>
-			<string>交通 / 路况</string>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>FM 105.2</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/1262/64k.mp3</string>
+			<key>genre</key>
+			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>gd-traffic</string>
 			<key>logo</key>
 			<string>gd-traffic.png</string>
+			<key>name</key>
+			<string>广东交通之声</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/1262/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>sz-news</string>
-			<key>name</key>
-			<string>深圳新闻广播</string>
-			<key>genre</key>
-			<string>新闻 / 综合</string>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 89.8</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/1270/64k.mp3</string>
-			<key>logo</key>
-			<string>sz-news.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>sc-news</string>
-			<key>name</key>
-			<string>四川新闻广播</string>
 			<key>genre</key>
 			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>sz-news</string>
+			<key>logo</key>
+			<string>sz-news.png</string>
+			<key>name</key>
+			<string>深圳新闻广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/1270/64k.mp3</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>新闻 综合</string>
 			<key>frequency</key>
 			<string>FM 98.1</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/4906/64k.mp3</string>
+			<key>genre</key>
+			<string>新闻 / 综合</string>
+			<key>id</key>
+			<string>sc-news</string>
 			<key>logo</key>
 			<string>sc-news.png</string>
+			<key>name</key>
+			<string>四川新闻广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/4906/64k.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>sc-traffic</string>
-			<key>name</key>
-			<string>四川交通广播</string>
-			<key>genre</key>
-			<string>交通 / 路况</string>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://lhttp.qingting.fm/live/4886/64k.mp3</string>
-			<key>logo</key>
-			<string>sc-traffic.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>cq-traffic</string>
-			<key>name</key>
-			<string>重庆交通广播</string>
 			<key>genre</key>
 			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>sc-traffic</string>
+			<key>logo</key>
+			<string>sc-traffic.png</string>
+			<key>name</key>
+			<string>四川交通广播</string>
+			<key>url</key>
+			<string>http://lhttp.qingting.fm/live/4886/64k.mp3</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>FM 95.5</string>
-			<key>url</key>
-			<string>http://ls.qingting.fm/live/1500.m3u8</string>
-			<key>logo</key>
-			<string>cq-traffic.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>sd-traffic</string>
-			<key>name</key>
-			<string>山东交通广播</string>
 			<key>genre</key>
 			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>cq-traffic</string>
+			<key>logo</key>
+			<string>cq-traffic.png</string>
+			<key>name</key>
+			<string>重庆交通广播</string>
+			<key>url</key>
+			<string>http://ls.qingting.fm/live/1500.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8</string>
-			<key>logo</key>
-			<string>sd-traffic.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>zj-traffic</string>
-			<key>name</key>
-			<string>浙江交通之声</string>
 			<key>genre</key>
 			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>sd-traffic</string>
+			<key>logo</key>
+			<string>sd-traffic.png</string>
+			<key>name</key>
+			<string>山东交通广播</string>
+			<key>url</key>
+			<string>http://audiolive302.iqilu.com/sdradioJiaotong/sdradio05/playlist.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>FM 93.0</string>
-			<key>url</key>
-			<string>http://ali-m-l.cztv.com/channels/lantian/fm93/128k.m3u8</string>
-			<key>logo</key>
-			<string>zj-traffic.png</string>
-		</dict>
-		<dict>
-			<key>id</key>
-			<string>js-traffic</string>
-			<key>name</key>
-			<string>江苏交通广播网</string>
 			<key>genre</key>
 			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>zj-traffic</string>
+			<key>logo</key>
+			<string>zj-traffic.png</string>
+			<key>name</key>
+			<string>浙江交通之声</string>
+			<key>url</key>
+			<string>http://ali-m-l.cztv.com/channels/lantian/fm93/128k.m3u8</string>
+		</dict>
+		<dict>
 			<key>detail</key>
 			<string>交通 路况</string>
 			<key>frequency</key>
 			<string>FM 101.1</string>
-			<key>url</key>
-			<string>http://lzlive.vojs.cn/4TaHTeL/92/live.m3u8</string>
+			<key>genre</key>
+			<string>交通 / 路况</string>
+			<key>id</key>
+			<string>js-traffic</string>
 			<key>logo</key>
 			<string>js-traffic.png</string>
+			<key>name</key>
+			<string>江苏交通广播网</string>
+			<key>url</key>
+			<string>http://lzlive.vojs.cn/4TaHTeL/92/live.m3u8</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>rp</string>
-			<key>name</key>
-			<string>Radio Paradise</string>
-			<key>genre</key>
-			<string>音乐 / 综合</string>
 			<key>detail</key>
 			<string>综合 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.radioparadise.com/mp3-128</string>
+			<key>genre</key>
+			<string>音乐 / 综合</string>
+			<key>id</key>
+			<string>rp</string>
 			<key>logo</key>
 			<string>rp.png</string>
+			<key>name</key>
+			<string>Radio Paradise</string>
+			<key>url</key>
+			<string>http://stream.radioparadise.com/mp3-128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>rp-mellow</string>
-			<key>name</key>
-			<string>Radio Paradise Mellow</string>
-			<key>genre</key>
-			<string>音乐 / 舒缓</string>
 			<key>detail</key>
 			<string>舒缓 · AAC</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.radioparadise.com/mellow-128</string>
+			<key>genre</key>
+			<string>音乐 / 舒缓</string>
+			<key>id</key>
+			<string>rp-mellow</string>
 			<key>logo</key>
 			<string>rp-mellow.png</string>
+			<key>name</key>
+			<string>Radio Paradise Mellow</string>
+			<key>url</key>
+			<string>http://stream.radioparadise.com/mellow-128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>rp-rock</string>
-			<key>name</key>
-			<string>Radio Paradise Rock</string>
-			<key>genre</key>
-			<string>音乐 / 摇滚</string>
 			<key>detail</key>
 			<string>摇滚 · AAC</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.radioparadise.com/rock-128</string>
+			<key>genre</key>
+			<string>音乐 / 摇滚</string>
+			<key>id</key>
+			<string>rp-rock</string>
 			<key>logo</key>
 			<string>rp-rock.png</string>
+			<key>name</key>
+			<string>Radio Paradise Rock</string>
+			<key>url</key>
+			<string>http://stream.radioparadise.com/rock-128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>classicfm</string>
-			<key>name</key>
-			<string>Classic FM</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://media-ice.musicradio.com/ClassicFMMP3</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>classicfm</string>
 			<key>logo</key>
 			<string>classicfm.png</string>
+			<key>name</key>
+			<string>Classic FM</string>
+			<key>url</key>
+			<string>http://media-ice.musicradio.com/ClassicFMMP3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>swiss-jazz</string>
-			<key>name</key>
-			<string>Radio Swiss Jazz</string>
-			<key>genre</key>
-			<string>爵士 / 音乐</string>
 			<key>detail</key>
 			<string>爵士 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/rsj/mp3_128</string>
+			<key>genre</key>
+			<string>爵士 / 音乐</string>
+			<key>id</key>
+			<string>swiss-jazz</string>
 			<key>logo</key>
 			<string>swiss-jazz.png</string>
+			<key>name</key>
+			<string>Radio Swiss Jazz</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/rsj/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>swiss-classic</string>
-			<key>name</key>
-			<string>Radio Swiss Classic</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/rsc_de/mp3_128</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>swiss-classic</string>
 			<key>logo</key>
 			<string>swiss-classic.png</string>
+			<key>name</key>
+			<string>Radio Swiss Classic</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/rsc_de/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>swiss-pop</string>
-			<key>name</key>
-			<string>Radio Swiss Pop</string>
-			<key>genre</key>
-			<string>流行 / 音乐</string>
 			<key>detail</key>
 			<string>流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/rsp/mp3_128</string>
+			<key>genre</key>
+			<string>流行 / 音乐</string>
+			<key>id</key>
+			<string>swiss-pop</string>
 			<key>logo</key>
 			<string>swiss-pop.png</string>
+			<key>name</key>
+			<string>Radio Swiss Pop</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/rsp/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>srg-uno</string>
-			<key>name</key>
-			<string>SRG Rete Uno</string>
-			<key>genre</key>
-			<string>音乐 / 综合</string>
 			<key>detail</key>
 			<string>意大利语 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/rr/mp3_128</string>
+			<key>genre</key>
+			<string>音乐 / 综合</string>
+			<key>id</key>
+			<string>srg-uno</string>
 			<key>logo</key>
 			<string>srg-uno.png</string>
+			<key>name</key>
+			<string>SRG Rete Uno</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/rr/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>srg-couleur</string>
-			<key>name</key>
-			<string>SRG Couleur 3</string>
-			<key>genre</key>
-			<string>音乐 / 另类</string>
 			<key>detail</key>
 			<string>另类 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/couleur3/mp3_128</string>
+			<key>genre</key>
+			<string>音乐 / 另类</string>
+			<key>id</key>
+			<string>srg-couleur</string>
 			<key>logo</key>
 			<string>srg-couleur.png</string>
+			<key>name</key>
+			<string>SRG Couleur 3</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/couleur3/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>dlf</string>
-			<key>name</key>
-			<string>Deutschlandfunk</string>
-			<key>genre</key>
-			<string>新闻 / 文化</string>
 			<key>detail</key>
 			<string>新闻 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://st01.dlf.de/dlf/01/128/mp3/stream.mp3</string>
+			<key>genre</key>
+			<string>新闻 / 文化</string>
+			<key>id</key>
+			<string>dlf</string>
 			<key>logo</key>
 			<string>dlf.png</string>
+			<key>name</key>
+			<string>Deutschlandfunk</string>
+			<key>url</key>
+			<string>http://st01.dlf.de/dlf/01/128/mp3/stream.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>dlf-kultur</string>
-			<key>name</key>
-			<string>Deutschlandfunk Kultur</string>
-			<key>genre</key>
-			<string>文化 / 音乐</string>
 			<key>detail</key>
 			<string>文化 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://st02.dlf.de/dlf/02/128/mp3/stream.mp3</string>
+			<key>genre</key>
+			<string>文化 / 音乐</string>
+			<key>id</key>
+			<string>dlf-kultur</string>
 			<key>logo</key>
 			<string>dlf-kultur.png</string>
+			<key>name</key>
+			<string>Deutschlandfunk Kultur</string>
+			<key>url</key>
+			<string>http://st02.dlf.de/dlf/02/128/mp3/stream.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>wdr1live</string>
-			<key>name</key>
-			<string>WDR 1LIVE</string>
-			<key>genre</key>
-			<string>流行 / 音乐</string>
 			<key>detail</key>
 			<string>流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3</string>
+			<key>genre</key>
+			<string>流行 / 音乐</string>
+			<key>id</key>
+			<string>wdr1live</string>
 			<key>logo</key>
 			<string>wdr1live.png</string>
+			<key>name</key>
+			<string>WDR 1LIVE</string>
+			<key>url</key>
+			<string>http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>npo4</string>
-			<key>name</key>
-			<string>NPO Radio 4</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://icecast.omroep.nl/radio4-bb-mp3</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>npo4</string>
 			<key>logo</key>
 			<string>npo4.png</string>
+			<key>name</key>
+			<string>NPO Radio 4</string>
+			<key>url</key>
+			<string>http://icecast.omroep.nl/radio4-bb-mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>npo2</string>
-			<key>name</key>
-			<string>NPO Radio 2</string>
-			<key>genre</key>
-			<string>流行 / 音乐</string>
 			<key>detail</key>
 			<string>流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://icecast.omroep.nl/radio2-bb-mp3</string>
+			<key>genre</key>
+			<string>流行 / 音乐</string>
+			<key>id</key>
+			<string>npo2</string>
 			<key>logo</key>
 			<string>npo2.png</string>
+			<key>name</key>
+			<string>NPO Radio 2</string>
+			<key>url</key>
+			<string>http://icecast.omroep.nl/radio2-bb-mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>onefm-baroque</string>
-			<key>name</key>
-			<string>1.FM Baroque</string>
-			<key>genre</key>
-			<string>古典 / 巴洛克</string>
 			<key>detail</key>
 			<string>巴洛克 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://strm112.1.fm/baroque_mobile_mp3</string>
+			<key>genre</key>
+			<string>古典 / 巴洛克</string>
+			<key>id</key>
+			<string>onefm-baroque</string>
 			<key>logo</key>
 			<string>onefm-baroque.png</string>
+			<key>name</key>
+			<string>1.FM Baroque</string>
+			<key>url</key>
+			<string>http://strm112.1.fm/baroque_mobile_mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>onefm-classical</string>
-			<key>name</key>
-			<string>1.FM Classical</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://strm112.1.fm/classical_mobile_mp3</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>onefm-classical</string>
 			<key>logo</key>
 			<string>onefm-classical.png</string>
+			<key>name</key>
+			<string>1.FM Classical</string>
+			<key>url</key>
+			<string>http://strm112.1.fm/classical_mobile_mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>onefm-opera</string>
-			<key>name</key>
-			<string>1.FM Opera</string>
-			<key>genre</key>
-			<string>歌剧 / 古典</string>
 			<key>detail</key>
 			<string>歌剧 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://strm112.1.fm/opera_mobile_mp3</string>
+			<key>genre</key>
+			<string>歌剧 / 古典</string>
+			<key>id</key>
+			<string>onefm-opera</string>
 			<key>logo</key>
 			<string>onefm-opera.png</string>
+			<key>name</key>
+			<string>1.FM Opera</string>
+			<key>url</key>
+			<string>http://strm112.1.fm/opera_mobile_mp3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>wfmu</string>
-			<key>name</key>
-			<string>WFMU</string>
-			<key>genre</key>
-			<string>另类 / 音乐</string>
 			<key>detail</key>
 			<string>自由电台 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream0.wfmu.org/freeform-128k</string>
+			<key>genre</key>
+			<string>另类 / 音乐</string>
+			<key>id</key>
+			<string>wfmu</string>
 			<key>logo</key>
 			<string>wfmu.png</string>
+			<key>name</key>
+			<string>WFMU</string>
+			<key>url</key>
+			<string>http://stream0.wfmu.org/freeform-128k</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>smooth</string>
-			<key>name</key>
-			<string>Smooth London</string>
-			<key>genre</key>
-			<string>流行 / 轻松</string>
 			<key>detail</key>
 			<string>轻松流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://media-ice.musicradio.com/SmoothLondonMP3</string>
+			<key>genre</key>
+			<string>流行 / 轻松</string>
+			<key>id</key>
+			<string>smooth</string>
 			<key>logo</key>
 			<string>smooth.png</string>
+			<key>name</key>
+			<string>Smooth London</string>
+			<key>url</key>
+			<string>http://media-ice.musicradio.com/SmoothLondonMP3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>heart</string>
-			<key>name</key>
-			<string>Heart London</string>
-			<key>genre</key>
-			<string>流行 / 音乐</string>
 			<key>detail</key>
 			<string>流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://media-ice.musicradio.com/HeartLondonMP3</string>
+			<key>genre</key>
+			<string>流行 / 音乐</string>
+			<key>id</key>
+			<string>heart</string>
 			<key>logo</key>
 			<string>heart.png</string>
+			<key>name</key>
+			<string>Heart London</string>
+			<key>url</key>
+			<string>http://media-ice.musicradio.com/HeartLondonMP3</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>srg-espace2</string>
-			<key>name</key>
-			<string>SRG Espace 2</string>
-			<key>genre</key>
-			<string>古典 / 音乐</string>
 			<key>detail</key>
 			<string>古典 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://stream.srg-ssr.ch/m/espace-2/mp3_128</string>
+			<key>genre</key>
+			<string>古典 / 音乐</string>
+			<key>id</key>
+			<string>srg-espace2</string>
 			<key>logo</key>
 			<string>srg-espace2.png</string>
+			<key>name</key>
+			<string>SRG Espace 2</string>
+			<key>url</key>
+			<string>http://stream.srg-ssr.ch/m/espace-2/mp3_128</string>
 		</dict>
 		<dict>
-			<key>id</key>
-			<string>npo3fm</string>
-			<key>name</key>
-			<string>NPO 3FM</string>
-			<key>genre</key>
-			<string>流行 / 音乐</string>
 			<key>detail</key>
 			<string>流行 · 128 kbps</string>
 			<key>frequency</key>
 			<string>在线直播</string>
-			<key>url</key>
-			<string>http://icecast.omroep.nl/3fm-bb-mp3</string>
+			<key>genre</key>
+			<string>流行 / 音乐</string>
+			<key>id</key>
+			<string>npo3fm</string>
 			<key>logo</key>
 			<string>npo3fm.png</string>
+			<key>name</key>
+			<string>NPO 3FM</string>
+			<key>url</key>
+			<string>http://icecast.omroep.nl/3fm-bb-mp3</string>
 		</dict>
 	</array>
 </dict>

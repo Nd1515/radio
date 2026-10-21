@@ -10,7 +10,6 @@
 @property (nonatomic, copy) NSString *frequency;
 @property (nonatomic, copy) NSString *streamURL;
 @property (nonatomic, copy) NSString *logoName;
-@property (nonatomic, assign, getter=isCustomStation) BOOL customStation;
 
 + (Station *)stationWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)dictionaryRepresentation;

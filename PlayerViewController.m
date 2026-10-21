@@ -1,10 +1,11 @@
-#import "PlayerViewController.h"
+﻿#import "PlayerViewController.h"
 #import "RadioPlayer.h"
 #import "Station.h"
 #import "TransportButton.h"
 #import "Theme.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
+#import <math.h>
 
 @interface VUMeterView : UIView
 @property (nonatomic, assign) BOOL active;
@@ -64,6 +65,125 @@
 
 @end
 
+
+@interface SkipButton : UIButton
+@property (nonatomic, assign) BOOL pointsLeft;
+@end
+
+@implementation SkipButton
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        self.opaque = NO;
+        self.contentMode = UIViewContentModeRedraw;
+    }
+    return self;
+}
+
+- (void)setPointsLeft:(BOOL)pointsLeft {
+    _pointsLeft = pointsLeft;
+    [self setNeedsDisplay];
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    [super setHighlighted:highlighted];
+    self.alpha = highlighted ? 0.72 : 1.0;
+}
+
+- (void)drawRect:(CGRect)rect {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGRect bounds = CGRectInset(self.bounds, 2.0, 2.0);
+    CGFloat size = MIN(bounds.size.width, bounds.size.height);
+    CGPoint center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+
+    CGContextSaveGState(context);
+    CGContextSetShadowWithColor(context, CGSizeMake(0, 2.5), 3.0,
+                                [UIColor colorWithWhite:0.0 alpha:0.65].CGColor);
+    CGFloat outer[12] = {0.42, 0.31, 0.16, 1.0,
+                         0.25, 0.18, 0.09, 1.0,
+                         0.10, 0.07, 0.04, 1.0};
+    CGFloat locations[3] = {0.0, 0.65, 1.0};
+    CGGradientRef outerGradient = CGGradientCreateWithColorComponents(
+        CGColorSpaceCreateDeviceRGB(), outer, locations, 3);
+    CGContextDrawRadialGradient(context, outerGradient, center, 0,
+                                center, size / 2.0, 0);
+    CGGradientRelease(outerGradient);
+    CGContextRestoreGState(context);
+
+    CGRect innerRect = CGRectInset(bounds, 4.0, 4.0);
+    CGFloat inner[12] = {0.23, 0.17, 0.10, 1.0,
+                         0.12, 0.09, 0.05, 1.0,
+                         0.055, 0.042, 0.028, 1.0};
+    CGGradientRef innerGradient = CGGradientCreateWithColorComponents(
+        CGColorSpaceCreateDeviceRGB(), inner, locations, 3);
+    CGContextSaveGState(context);
+    CGContextAddEllipseInRect(context, innerRect);
+    CGContextClip(context);
+    CGContextDrawRadialGradient(context, innerGradient,
+                                CGPointMake(CGRectGetMidX(innerRect), CGRectGetMidY(innerRect)),
+                                0, center, size / 2.0, 0);
+    CGGradientRelease(innerGradient);
+    CGContextRestoreGState(context);
+
+    UIColor *brass = [UIColor colorWithRed:0.74 green:0.57 blue:0.28 alpha:1.0];
+    CGContextSetStrokeColorWithColor(context, brass.CGColor);
+    CGContextSetLineWidth(context, 1.6);
+    CGContextStrokeEllipseInRect(context, bounds);
+
+    CGContextSetStrokeColorWithColor(context, [UIColor colorWithWhite:1.0 alpha:0.16].CGColor);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextStrokeEllipseInRect(context, CGRectInset(bounds, 2.0, 2.0));
+
+    CGFloat gap = size * 0.115;
+    CGFloat halfHeight = size * 0.17;
+    CGFloat chevronWidth = size * 0.145;
+    CGFloat startX = center.x + (self.pointsLeft ? gap : -gap);
+    for (NSInteger i = 0; i < 2; i++) {
+        CGFloat x = startX + (self.pointsLeft ? -i * gap : i * gap);
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        if (self.pointsLeft) {
+            [path moveToPoint:CGPointMake(x, center.y - halfHeight)];
+            [path addLineToPoint:CGPointMake(x - chevronWidth, center.y)];
+            [path addLineToPoint:CGPointMake(x, center.y + halfHeight)];
+        } else {
+            [path moveToPoint:CGPointMake(x, center.y - halfHeight)];
+            [path addLineToPoint:CGPointMake(x + chevronWidth, center.y)];
+            [path addLineToPoint:CGPointMake(x, center.y + halfHeight)];
+        }
+        path.lineWidth = size * 0.065;
+        path.lineCapStyle = kCGLineCapRound;
+        path.lineJoinStyle = kCGLineJoinRound;
+
+        CGContextSaveGState(context);
+        CGContextSetShadowWithColor(context, CGSizeMake(0, 1.5), 1.5,
+                                    [UIColor colorWithWhite:0.0 alpha:0.8].CGColor);
+        [[UIColor colorWithRed:0.28 green:0.19 blue:0.09 alpha:1.0] setStroke];
+        [path stroke];
+        CGContextRestoreGState(context);
+
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, 0, -1.0);
+        [[UIColor colorWithRed:1.0 green:0.92 blue:0.74 alpha:0.55] setStroke];
+        path.lineWidth = size * 0.028;
+        [path stroke];
+        CGContextRestoreGState(context);
+
+        [brass setStroke];
+        path.lineWidth = size * 0.055;
+        [path stroke];
+    }
+
+    CGContextSetStrokeColorWithColor(context, [UIColor colorWithWhite:1.0 alpha:0.22].CGColor);
+    CGContextSetLineWidth(context, 1.2);
+    CGContextAddArc(context, center.x, center.y, size * 0.32,
+                    (CGFloat)-M_PI * 0.85, (CGFloat)-M_PI * 0.18, 0);
+    CGContextStrokePath(context);
+}
+
+@end
+
 @interface PlayerViewController ()
 @property (nonatomic, strong) UIImageView *logoView;
 @property (nonatomic, strong) UIView *bezelView;
@@ -92,18 +212,9 @@
 }
 
 - (UIButton *)makeSkipButtonWithTitle:(NSString *)title action:(SEL)action {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.backgroundColor = [UIColor colorWithRed:0.20 green:0.15 blue:0.10 alpha:0.96];
-    button.layer.cornerRadius = 25.0;
-    button.layer.borderWidth = 1.5;
-    button.layer.borderColor = [[Theme brass] CGColor];
-    button.layer.shadowColor = [[UIColor blackColor] CGColor];
-    button.layer.shadowOpacity = 0.55;
-    button.layer.shadowRadius = 3.0;
-    button.layer.shadowOffset = CGSizeMake(0, 2);
-    button.titleLabel.font = [Theme boldTextFontOfSize:14];
-    [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[Theme brass] forState:UIControlStateNormal];
+    SkipButton *button = [SkipButton buttonWithType:UIButtonTypeCustom];
+    button.pointsLeft = [title hasPrefix:@"◀"];
+    button.accessibilityLabel = button.pointsLeft ? @"上一台" : @"下一台";
     [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     return button;
@@ -358,3 +469,4 @@
 }
 
 @end
+
