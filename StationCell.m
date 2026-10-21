@@ -3,20 +3,42 @@
 #import "Theme.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface StationCell ()
+@property (nonatomic, strong) UIView *cardView;
+@end
+
 @implementation StationCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [Theme paper];
-        self.contentView.backgroundColor = [Theme paper];
-        self.selectionStyle = UITableViewCellSelectionStyleGray;
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        self.cardView = [[UIView alloc] initWithFrame:CGRectZero];
+        self.cardView.backgroundColor = [UIColor colorWithPatternImage:[Theme leatherTexture]];
+        self.cardView.layer.cornerRadius = 7.0;
+        self.cardView.layer.borderWidth = 1.0;
+        self.cardView.layer.borderColor = [[UIColor colorWithRed:0.52 green:0.39 blue:0.20 alpha:0.65] CGColor];
+        self.cardView.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.cardView.layer.shadowOpacity = 0.45;
+        self.cardView.layer.shadowRadius = 3.0;
+        self.cardView.layer.shadowOffset = CGSizeMake(0, 2);
+        self.backgroundView = self.cardView;
+
+        UIView *selected = [[UIView alloc] initWithFrame:CGRectZero];
+        selected.backgroundColor = [UIColor colorWithRed:0.24 green:0.16 blue:0.09 alpha:0.85];
+        selected.layer.cornerRadius = 7.0;
+        self.selectedBackgroundView = selected;
 
         self.logoView = [[UIImageView alloc] initWithFrame:CGRectMake(12, 8, 48, 48)];
         self.logoView.contentMode = UIViewContentModeScaleAspectFill;
         self.logoView.clipsToBounds = YES;
         self.logoView.layer.cornerRadius = 5.0;
-        self.logoView.backgroundColor = [UIColor colorWithWhite:0.90 alpha:1.0];
+        self.logoView.layer.borderWidth = 1.0;
+        self.logoView.layer.borderColor = [[UIColor colorWithRed:0.55 green:0.42 blue:0.22 alpha:0.8] CGColor];
+        self.logoView.backgroundColor = [UIColor colorWithRed:0.74 green:0.64 blue:0.48 alpha:1.0];
         [self.contentView addSubview:self.logoView];
 
         self.placeholderLabel = [[UILabel alloc] initWithFrame:self.logoView.bounds];
@@ -28,26 +50,32 @@
 
         self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(72, 11, 220, 22)];
         self.nameLabel.backgroundColor = [UIColor clearColor];
-        self.nameLabel.textColor = [Theme ink];
+        self.nameLabel.textColor = [Theme cream];
         self.nameLabel.font = [Theme boldTextFontOfSize:16];
         self.nameLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        self.nameLabel.layer.shadowColor = [[UIColor blackColor] CGColor];
+        self.nameLabel.layer.shadowOpacity = 0.65;
+        self.nameLabel.layer.shadowRadius = 1.0;
+        self.nameLabel.layer.shadowOffset = CGSizeMake(0, 1);
         [self.contentView addSubview:self.nameLabel];
 
         self.detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(72, 33, 220, 18)];
         self.detailLabel.backgroundColor = [UIColor clearColor];
-        self.detailLabel.textColor = [Theme muted];
+        self.detailLabel.textColor = [UIColor colorWithRed:0.66 green:0.55 blue:0.38 alpha:1.0];
         self.detailLabel.font = [Theme textFontOfSize:12];
         self.detailLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.contentView addSubview:self.detailLabel];
 
         self.nowLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 52, 18)];
-        self.nowLabel.backgroundColor = [Theme accent];
-        self.nowLabel.textColor = [UIColor whiteColor];
+        self.nowLabel.backgroundColor = [UIColor colorWithRed:0.55 green:0.31 blue:0.09 alpha:1.0];
+        self.nowLabel.textColor = [UIColor colorWithRed:0.96 green:0.84 blue:0.62 alpha:1.0];
         self.nowLabel.font = [Theme boldTextFontOfSize:10];
         self.nowLabel.textAlignment = NSTextAlignmentCenter;
         self.nowLabel.text = @"直播中";
         self.nowLabel.hidden = YES;
         self.nowLabel.layer.cornerRadius = 3.0;
+        self.nowLabel.layer.borderWidth = 0.5;
+        self.nowLabel.layer.borderColor = [[UIColor colorWithRed:0.78 green:0.62 blue:0.32 alpha:0.8] CGColor];
         self.nowLabel.clipsToBounds = YES;
         [self.contentView addSubview:self.nowLabel];
     }
@@ -56,6 +84,9 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    CGRect cardFrame = CGRectInset(self.bounds, 6.0, 4.0);
+    self.backgroundView.frame = cardFrame;
+    self.selectedBackgroundView.frame = cardFrame;
     CGFloat width = self.contentView.bounds.size.width;
     self.nameLabel.frame = CGRectMake(72, 10, width - 146, 22);
     self.detailLabel.frame = CGRectMake(72, 32, width - 146, 18);
@@ -68,7 +99,7 @@
     NSString *frequency = station.frequency ? station.frequency : @"在线直播";
     self.detailLabel.text = [NSString stringWithFormat:@"%@ · %@", genre, frequency];
     self.nowLabel.hidden = !nowPlaying;
-    self.nameLabel.textColor = nowPlaying ? [Theme accent] : [Theme ink];
+    self.nameLabel.textColor = nowPlaying ? [Theme ledAmber] : [Theme cream];
 
     UIImage *image = [station logoImage];
     self.logoView.image = image;
