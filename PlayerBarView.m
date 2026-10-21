@@ -54,7 +54,7 @@
 
         self.chevronLabel = [[UILabel alloc] initWithFrame:CGRectMake(frame.size.width - 18, 15, 12, 26)];
         self.chevronLabel.backgroundColor = [UIColor clearColor];
-        self.chevronLabel.text = @"鈥?;
+        self.chevronLabel.text = @"›";
         self.chevronLabel.textColor = [Theme muted];
         self.chevronLabel.font = [Theme textFontOfSize:24];
         self.chevronLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
@@ -81,8 +81,8 @@
 - (void)updateWithStation:(Station *)station state:(RadioPlayerState)state {
     if (!station) {
         self.logoView.image = nil;
-        self.nameLabel.text = @"杩樻病鏈夐€夋嫨鐢靛彴";
-        self.statusLabel.text = @"鐐瑰彸涓婅鈥滈€夋嫨鈥?;
+        self.nameLabel.text = @"还没有选择电台";
+        self.statusLabel.text = @"点右上角“选择”";
         self.playButton.hidden = YES;
         self.chevronLabel.hidden = YES;
         return;
@@ -93,27 +93,27 @@
     self.chevronLabel.hidden = NO;
     self.playButton.showsPause = (state == RadioPlayerStatePlaying || state == RadioPlayerStateConnecting);
 
-    NSString *status = @"宸叉殏鍋?;
+    NSString *status = @"已暂停";
     UIColor *color = [Theme muted];
     switch (state) {
         case RadioPlayerStateConnecting:
-            status = @"姝ｅ湪杩炴帴鈥?;
+            status = @"正在连接…";
             color = [Theme accent];
             break;
         case RadioPlayerStatePlaying:
-            status = [NSString stringWithFormat:@"姝ｅ湪鎾斁 路 %@", station.genre ? station.genre : @"缃戠粶鐢靛彴"];
+            status = [NSString stringWithFormat:@"正在播放 · %@", station.genre ? station.genre : @"网络电台"];
             color = [Theme accent];
             break;
         case RadioPlayerStatePaused:
-            status = @"宸叉殏鍋?;
+            status = @"已暂停";
             color = [Theme muted];
             break;
         case RadioPlayerStateFailed:
-            status = @"杩炴帴澶辫触锛岀偣鎸夐噸璇?;
+            status = @"连接失败，点按重试";
             color = [Theme accent];
             break;
         default:
-            status = @"宸插仠姝?;
+            status = @"已停止";
             color = [Theme muted];
             break;
     }

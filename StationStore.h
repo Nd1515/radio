@@ -17,5 +17,7 @@ extern NSString * const StationStoreDidChangeNotification;
 - (void)setSelected:(BOOL)selected forStation:(Station *)station;
 - (void)moveSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex;
 - (void)resetSelection;
+- (BOOL)containsStationWithURL:(NSString *)url;
+- (BOOL)addCustomStation:(Station *)station;
 
 @end

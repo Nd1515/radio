@@ -3,12 +3,14 @@
 
 NSString * const StationStoreDidChangeNotification = @"StationStoreDidChangeNotification";
 static NSString * const kSelectedIDsKey = @"OldRadioSelectedStationIDs";
+static NSString * const kCustomStationsKey = @"OldRadioCustomStations";
 
 @interface StationStore ()
 @property (nonatomic, strong, readwrite) NSArray *allStations;
 @property (nonatomic, strong, readwrite) NSArray *defaultSelectedIDs;
 @property (nonatomic, strong) NSMutableArray *selectedIDs;
 @property (nonatomic, strong) NSMutableDictionary *stationByID;
+- (void)saveCustomStations;
 @end
 
 @implementation StationStore
@@ -47,6 +49,16 @@ static NSString * const kSelectedIDsKey = @"OldRadioSelectedStationIDs";
         if (station) {
             [stations addObject:station];
             [byID setObject:station forKey:station.stationID];
+        }
+    }
+    NSArray *customDictionaries = [[NSUserDefaults standardUserDefaults] objectForKey:kCustomStationsKey];
+    if ([customDictionaries isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *dictionary in customDictionaries) {
+            Station *station = [Station stationWithDictionary:dictionary];
+            if (station && ![byID objectForKey:station.stationID]) {
+                [stations addObject:station];
+                [byID setObject:station forKey:station.stationID];
+            }
         }
     }
     self.allStations = stations;
@@ -144,6 +156,42 @@ static NSString * const kSelectedIDsKey = @"OldRadioSelectedStationIDs";
     self.selectedIDs = [NSMutableArray arrayWithArray:self.defaultSelectedIDs];
     [self saveSelection];
     [self notifyChange];
+}
+
+- (BOOL)containsStationWithURL:(NSString *)url {
+    if (url.length == 0) return NO;
+    for (Station *station in self.allStations) {
+        if ([station.streamURL isEqualToString:url]) return YES;
+    }
+    return NO;
+}
+
+- (BOOL)addCustomStation:(Station *)station {
+    if (!station || station.stationID.length == 0 || station.name.length == 0 || station.streamURL.length == 0) return NO;
+    if ([self.stationByID objectForKey:station.stationID]) return NO;
+    if ([self containsStationWithURL:station.streamURL]) return NO;
+    station.customStation = YES;
+    NSMutableArray *stations = [NSMutableArray arrayWithArray:self.allStations];
+    [stations addObject:station];
+    self.allStations = stations;
+    [self.stationByID setObject:station forKey:station.stationID];
+    if (![self.selectedIDs containsObject:station.stationID]) {
+        [self.selectedIDs addObject:station.stationID];
+    }
+    [self saveSelection];
+    [self saveCustomStations];
+    [self notifyChange];
+    return YES;
+}
+
+- (void)saveCustomStations {
+    NSMutableArray *items = [NSMutableArray array];
+    for (Station *station in self.allStations) {
+        if (station.customStation) [items addObject:[station dictionaryRepresentation]];
+    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:items forKey:kCustomStationsKey];
+    [defaults synchronize];
 }
 
 - (void)saveSelection {
