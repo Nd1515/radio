@@ -5,6 +5,7 @@
 
 @interface StationCell ()
 @property (nonatomic, strong) UIView *cardView;
+@property (nonatomic, strong) CAGradientLayer *cardGradient;
 @end
 
 @implementation StationCell
@@ -17,7 +18,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
 
         self.cardView = [[UIView alloc] initWithFrame:CGRectZero];
-        self.cardView.backgroundColor = [UIColor colorWithPatternImage:[Theme leatherTexture]];
+        self.cardView.backgroundColor = [UIColor clearColor];
         self.cardView.layer.cornerRadius = 7.0;
         self.cardView.layer.borderWidth = 1.0;
         self.cardView.layer.borderColor = [[UIColor colorWithRed:0.52 green:0.39 blue:0.20 alpha:0.65] CGColor];
@@ -26,6 +27,20 @@
         self.cardView.layer.shadowRadius = 3.0;
         self.cardView.layer.shadowOffset = CGSizeMake(0, 2);
         self.backgroundView = self.cardView;
+
+        self.cardGradient = [CAGradientLayer layer];
+        self.cardGradient.colors = [NSArray arrayWithObjects:
+            (id)[UIColor colorWithRed:0.21 green:0.14 blue:0.085 alpha:1.0].CGColor,
+            (id)[UIColor colorWithRed:0.14 green:0.095 blue:0.058 alpha:1.0].CGColor,
+            (id)[UIColor colorWithRed:0.085 green:0.055 blue:0.032 alpha:1.0].CGColor, nil];
+        self.cardGradient.locations = [NSArray arrayWithObjects:
+            [NSNumber numberWithFloat:0.0],
+            [NSNumber numberWithFloat:0.55],
+            [NSNumber numberWithFloat:1.0], nil];
+        self.cardGradient.startPoint = CGPointMake(0.5, 0.0);
+        self.cardGradient.endPoint = CGPointMake(0.5, 1.0);
+        self.cardGradient.cornerRadius = 7.0;
+        [self.cardView.layer insertSublayer:self.cardGradient atIndex:0];
 
         UIView *selected = [[UIView alloc] initWithFrame:CGRectZero];
         selected.backgroundColor = [UIColor colorWithRed:0.24 green:0.16 blue:0.09 alpha:0.85];
@@ -87,6 +102,7 @@
     CGRect cardFrame = CGRectInset(self.bounds, 6.0, 4.0);
     self.backgroundView.frame = cardFrame;
     self.selectedBackgroundView.frame = cardFrame;
+    self.cardGradient.frame = self.cardView.bounds;
     CGFloat width = self.contentView.bounds.size.width;
     self.nameLabel.frame = CGRectMake(72, 10, width - 146, 22);
     self.detailLabel.frame = CGRectMake(72, 32, width - 146, 18);
